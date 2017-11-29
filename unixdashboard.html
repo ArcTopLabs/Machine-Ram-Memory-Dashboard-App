@@ -1,6 +1,7 @@
 <html>
     <head>
 
+        <title > Machine Ram Memory Dashboard App </title>
         <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
         <meta content="utf-8" http-equiv="encoding">
 
@@ -35,11 +36,11 @@
 
                     //call customer
                     $.ajax({
-                        url: 'http://api.masterdatanode.com/unix/memory/find/',
+                        url: 'http://api.masterdatanode.com/##APPNAME##/memory/find/',
                         type: 'post',
                         data: dataString,
                         headers: {
-                            "access_token": '#######Access_Token########',
+                            "access_token": '####ACCESSTOKEN######',
                             "Content-Type": 'application/json'
                         },
                         dataType: 'json',
@@ -57,21 +58,13 @@
                                     var date = date_time.substr(0, date_time.indexOf(' ')); // "72"
 
 //                                    alert(JSON.stringify(val['Country']));
-                                    comboChart.push([val['machine'] + "|" + val['used_per']+ "|" + date, parseInt(val['total']), parseInt(val['used']), parseInt(val['available'])]);
+                                    comboChart.push([val['machine'] + "|" + date, parseInt(val['used']) + parseInt(val['free']) , parseInt(val['used']), parseInt(val['free'])]);
 //                                    alert(JSON.stringify(dataPop));
                                 }
                             }
                             // Load the Visualization API and the corechart package.
 
 
-                            // Set a callback to run when the Google Visualization API is loaded.
-//                            google.charts.setOnLoadCallback(drawChart);
-//                            google.charts.setOnLoadCallback(drawBar);
-//                            google.charts.setOnLoadCallback(drawSeriesChart);
-//                            google.charts.setOnLoadCallback(drawColumnChart);
-
-//                            google.charts.setOnLoadCallback(drawDonutChart);
-//                            google.charts.setOnLoadCallback(draw3dChart);
                             google.charts.setOnLoadCallback(drawComboChart);
 
 
@@ -116,39 +109,6 @@
             }
 
 
-            function drawDonutChart() {
-                var data = google.visualization.arrayToDataTable(dataPop);
-
-                var options = {
-                    title: 'World Population Donut chart',
-                    pieHole: 0.4,
-//                    slices: {1: {offset: 0.2},
-//                        2: {offset: 0.3},
-//                        4: {offset: 0.4},
-//                        7: {offset: 0.5},
-//                    },
-                };
-
-                var chart = new google.visualization.PieChart(document.getElementById('donutchart_div'));
-                chart.draw(data, options);
-            }
-
-            function draw3dChart() {
-                var data = google.visualization.arrayToDataTable(dataPop);
-
-                var options = {
-                    title: 'World Population 3d chart',
-                    is3D: true,
-//                    slices: {1: {offset: 0.2},
-//                        2: {offset: 0.3},
-//                        4: {offset: 0.4},
-//                        7: {offset: 0.5},
-//                    },
-                };
-
-                var chart = new google.visualization.PieChart(document.getElementById('3dchart_div'));
-                chart.draw(data, options);
-            }
 
         </script>
     </head>
@@ -161,12 +121,12 @@
             <div class="container" style="text-align: center">
 
                 <div >
-                    <h1>Dashboard charts</h1>
-                    <p class="lead">With MasterDataNode you don't require server<br> A standalone html page with CSS and JS, suffice to build Chart application</p>
+                    <h1>Machine Ram Memory Dashboard App</h1>
+                    <p class="lead">Machine Ram Memory Dashboard App, Data solution build on top of ArcTop Labs #DataSolution #MasterDataNode EcoSystem</p>
                 </div>
                 <div >
                     <button class="btn btn-info">Click Button to create charts</button>
-                    <a href="https://github.com/MasterDataNode/HTMLExample/blob/master/charts.html" target="blank" > <button class="btn btn-info">See Code</button> </a>
+                    
                 </div>
 
 

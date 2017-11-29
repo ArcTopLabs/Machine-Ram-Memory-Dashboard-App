@@ -48,10 +48,10 @@ print 'Real Mem Total (ps):\t%.3f MB' % ( rssTotal/1024/1024 )
 
 
 headers = {"Content-type": "application/json",
-            "access_token": "####Access_Token########"}
-url = 'http://api.masterdatanode.com/unix/memory/save/'
+            "access_token": "####ACCESSTOKEN######"}
+url = 'http://api.masterdatanode.com/##APPNAME##/memory/save/'
 
-data = {'data' :  [{'wired': ( vmStats["Pages wired down"]/1024/1024 ), 'active': ( vmStats["Pages active"]/1024/1024 ), 'inactive': ( vmStats["Pages inactive"]/1024/1024 ), 'free' : ( vmStats["Pages free"]/1024/1024 )  , 'used' : ( rssTotal/1024/1024 )}]}
+data = {'data' :  [{'machine' : 'Machine1', 'wired': ( vmStats["Pages wired down"]/1024/1024 ), 'active': ( vmStats["Pages active"]/1024/1024 ), 'inactive': ( vmStats["Pages inactive"]/1024/1024 ), 'free' : ( vmStats["Pages free"]/1024/1024 )  , 'used' : ( rssTotal/1024/1024 )}]}
 params = {}
 #params = {'sessionKey': '9ebbd0b25760557393a43064a92bae539d962103', 'format': 'xml', 'platformId': 1}
 
